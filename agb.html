@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AGB – WK Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #07090F; --bg2: #0D111B; --bg3: #141926;
+    --accent: #E8722A; --accent2: #F59B5E;
+    --text: #F0EEE8; --muted: #7A8098; --border: rgba(255,255,255,0.07);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Manrope', sans-serif; font-size: 16px; line-height: 1.7; }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5vw;
+    background: rgba(7,9,15,0.9); backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-family: 'Syne', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--text); text-decoration: none; }
+  .logo span { color: var(--accent); }
+  .back-link { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+  .back-link:hover { color: var(--text); }
+  main { max-width: 760px; margin: 0 auto; padding: 8rem 5vw 6rem; }
+  .page-tag {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .page-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+  h1 { font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+  .last-updated { font-size: 0.82rem; color: var(--muted); margin-bottom: 3.5rem; }
+  .card {
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    border-radius: 16px; padding: 2rem 2.5rem; margin-bottom: 1.5rem;
+  }
+  h2 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.2rem; color: var(--accent2); letter-spacing: -0.01em; }
+  h3 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin: 1.2rem 0 0.5rem; color: var(--text); }
+  p { color: var(--muted); font-size: 0.95rem; line-height: 1.85; margin-bottom: 0.8rem; }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--text); font-weight: 600; }
+  a { color: var(--accent2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  ul { list-style: none; margin: 0.8rem 0; }
+  ul li { color: var(--muted); font-size: 0.95rem; padding: 0.3rem 0 0.3rem 1.4rem; position: relative; }
+  ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; top: 0.38rem; }
+  .widerruf-box {
+    background: rgba(232,114,42,0.06); border: 1px solid rgba(232,114,42,0.25);
+    border-radius: 12px; padding: 1.5rem 2rem; margin: 1rem 0;
+  }
+  .widerruf-box h3 { color: var(--accent2); margin-top: 0; }
+  .notice {
+    background: rgba(232,114,42,0.06); border: 1px solid rgba(232,114,42,0.2);
+    border-radius: 10px; padding: 1rem 1.5rem; margin-top: 2rem;
+    font-size: 0.85rem; color: var(--muted);
+  }
+  footer { padding: 2.5rem 5vw; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  footer p { font-size: 0.82rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; margin-left: 2rem; }
+  footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="wk-solutions.html" class="logo">WK<span>.</span>Solutions</a>
+  <a href="wk-solutions.html" class="back-link">← Zurück zur Startseite</a>
+</nav>
+
+<main>
+  <div class="page-tag">Rechtliches</div>
+  <h1>Allgemeine Geschäfts&shy;bedingungen</h1>
+  <p class="last-updated">Stand: Januar 2025 · Gemäß BGB, EU-Verbraucherrechterichtlinie 2011/83/EU, EU-Richtlinie 2019/770</p>
+
+  <div class="card">
+    <h2>§ 1 Geltungsbereich & Anbieter</h2>
+    <p>Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen</p>
+    <p>
+      <strong>Max Mustermann · WK Solutions</strong><br>
+      Musterstraße 12, 40210 Düsseldorf<br>
+      E-Mail: <a href="mailto:info@wk-solutions.de">info@wk-solutions.de</a>
+    </p>
+    <p>(nachfolgend „Anbieter") und dem Nutzer (nachfolgend „Kunde") über die Nutzung
+       der angebotenen Software-as-a-Service-Produkte und IT-Dienstleistungen.</p>
+    <p>Abweichende Bedingungen des Kunden werden nicht anerkannt, es sei denn, der
+       Anbieter stimmt ihrer Geltung ausdrücklich schriftlich zu.</p>
+  </div>
+
+  <div class="card">
+    <h2>§ 2 Vertragsschluss</h2>
+    <p>Die Darstellung der Produkte und Leistungen auf der Website stellt kein rechtlich
+       bindendes Angebot dar, sondern eine Aufforderung zur Abgabe eines Angebots.</p>
+    <p>Ein Vertrag kommt zustande durch:</p>
+    <ul>
+      <li>Registrierung für ein kostenloses oder kostenpflichtiges Konto, oder</li>
+      <li>Beauftragung einer IT-Dienstleistung per E-Mail oder Bestellformular</li>
+    </ul>
+    <p>Der Anbieter bestätigt den Vertragsschluss per E-Mail. Diese Bestätigungs-E-Mail
+       stellt die Annahme des Angebots dar.</p>
+  </div>
+
+  <div class="card">
+    <h2>§ 3 Leistungsumfang</h2>
+    <h3>SaaS-Produkte</h3>
+    <p>Der Anbieter stellt dem Kunden die vereinbarten Software-Produkte (z.B. ImmoAnalyzer)
+       über das Internet als Software-as-a-Service zur Verfügung. Der Kunde erhält ein
+       nicht-exklusives, nicht übertragbares Nutzungsrecht für die Vertragslaufzeit.</p>
+    <p>Der Anbieter ist berechtigt, die Dienste bei Wartungsarbeiten oder aus wichtigem
+       Grund vorübergehend einzuschränken. Geplante Wartungsarbeiten werden rechtzeitig
+       angekündigt. Eine Verfügbarkeit von 99 % im Jahresmittel wird angestrebt.</p>
+    <h3>IT-Dienstleistungen</h3>
+    <p>Umfang, Vergütung und Fristen von IT-Dienstleistungen werden individuell in einem
+       separaten Angebot oder Dienstleistungsvertrag vereinbart.</p>
+  </div>
+
+  <div class="card">
+    <h2>§ 4 Preise & Zahlung</h2>
+    <p>Es gelten die zum Zeitpunkt des Vertragsschlusses aktuellen Preise. Alle Preise
+       verstehen sich ggf. zuzüglich der gesetzlichen Umsatzsteuer.</p>
+    <ul>
+      <li>Kostenlose Tarife sind ohne Zahlungsverpflichtung nutzbar.</li>
+      <li>Kostenpflichtige Abonnements werden im Voraus abgerechnet (monatlich oder jährlich).</li>
+      <li>Zahlungen sind mit den angebotenen Zahlungsmitteln zu leisten.</li>
+      <li>Bei Zahlungsverzug behält sich der Anbieter das Recht vor, den Zugang zu sperren.</li>
+    </ul>
+    <p>Preisänderungen werden dem Kunden mindestens 30 Tage vor Inkrafttreten per E-Mail
+       mitgeteilt. Der Kunde kann bei Preiserhöhungen außerordentlich kündigen.</p>
+  </div>
+
+  <div class="card">
+    <h2>§ 5 Widerrufsrecht (Verbraucher)</h2>
+    <div class="widerruf-box">
+      <h3>Widerrufsbelehrung gemäß Art. 9 EU-Richtlinie 2011/83/EU</h3>
+      <p>Verbraucher haben das Recht, binnen <strong>14 Tagen</strong> ohne Angabe von
+         Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt 14 Tage ab dem
+         Tag des Vertragsschlusses.</p>
+      <p>Um das Widerrufsrecht auszuüben, müssen Sie uns (Max Mustermann, WK Solutions,
+         Musterstraße 12, 40210 Düsseldorf, <a href="mailto:info@wk-solutions.de">info@wk-solutions.de</a>)
+         mittels einer eindeutigen Erklärung über Ihren Entschluss, diesen Vertrag zu
+         widerrufen, informieren.</p>
+      <p><strong>Erlöschen des Widerrufsrechts:</strong> Das Widerrufsrecht erlischt bei
+         digitalen Inhalten/SaaS-Diensten, wenn der Anbieter mit der Vertragserfüllung
+         begonnen hat und der Verbraucher ausdrücklich zugestimmt hat, dass der Anbieter
+         vor Ablauf der Widerrufsfrist mit der Ausführung beginnt, und seine Kenntnis
+         davon bestätigt hat, dass er durch seine Zustimmung sein Widerrufsrecht verliert
+         (Art. 16 lit. m EU-Richtlinie 2011/83/EU).</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>§ 6 Pflichten des Kunden</h2>
+    <p>Der Kunde verpflichtet sich:</p>
+    <ul>
+      <li>Zugangsdaten vertraulich zu behandeln und vor dem Zugriff Dritter zu schützen</li>
+      <li>Die Dienste nicht für rechtswidrige Zwecke zu nutzen</li>
+      <li>Keine automatisierten Abfragen, Scraping oder Überlastangriffe durchzuführen</li>
+      <li>Vollständige und korrekte Angaben bei der Registrierung zu machen</li>
+      <li>Den Anbieter unverzüglich über Missbrauch oder unbefugten Zugriff zu informieren</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>§ 7 Vertragslaufzeit & Kündigung</h2>
+    <h3>Kostenlose Tarife</h3>
+    <p>Kostenlose Nutzungsvereinbarungen können jederzeit ohne Einhaltung einer Frist
+       von beiden Seiten beendet werden.</p>
+    <h3>Kostenpflichtige Abonnements</h3>
+    <p>Monatliche Abonnements enden mit Ablauf des bezahlten Monats, wenn sie bis zum
+       letzten Tag des laufenden Monats gekündigt werden. Jahresabonnements können mit
+       einer Frist von 30 Tagen zum Ende des Vertragsjahres gekündigt werden.</p>
+    <p>Das Recht zur außerordentlichen Kündigung aus wichtigem Grund bleibt unberührt.
+       Ein wichtiger Grund für den Anbieter liegt insbesondere bei schwerem Verstoß
+       gegen diese AGB vor.</p>
+  </div>
+
+  <div class="card">
+    <h2>§ 8 Haftung</h2>
+    <p>Der Anbieter haftet unbeschränkt für Schäden aus der Verletzung des Lebens,
+       des Körpers oder der Gesundheit sowie für vorsätzlich oder grob fahrlässig
+       verursachte Schäden.</p>
+    <p>Im Übrigen ist die Haftung des Anbieters auf den vertragstypischen, vorhersehbaren
+       Schaden begrenzt. Eine Haftung für mittelbare Schäden, entgangenen Gewinn oder
+       Datenverluste ist ausgeschlossen, soweit gesetzlich zulässig.</p>
+    <p>Der Anbieter übernimmt keine Gewähr für die inhaltliche Richtigkeit von
+       Berechnungen der SaaS-Produkte – diese dienen der Unterstützung, ersetzen aber
+       keine steuerliche oder rechtliche Beratung.</p>
+  </div>
+
+  <div class="card">
+    <h2>§ 9 Geistiges Eigentum</h2>
+    <p>Alle Rechte an den angebotenen Software-Produkten, deren Code, Design und
+       Inhalten verbleiben beim Anbieter. Der Kunde erhält ausschließlich ein zeitlich
+       begrenztes Nutzungsrecht im Rahmen des vereinbarten Tarifplans.</p>
+    <p>Der Kunde ist nicht berechtigt, die Software zu kopieren, zu dekompilieren,
+       zu modifizieren oder für Dritte zugänglich zu machen.</p>
+  </div>
+
+  <div class="card">
+    <h2>§ 10 Datenschutz</h2>
+    <p>Die Verarbeitung personenbezogener Daten erfolgt gemäß unserer
+       <a href="datenschutz.html">Datenschutzerklärung</a>, die Bestandteil dieser
+       AGB ist, sowie den Vorgaben der DSGVO (EU) 2016/679.</p>
+  </div>
+
+  <div class="card">
+    <h2>§ 11 Anwendbares Recht & Gerichtsstand</h2>
+    <p>Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des
+       UN-Kaufrechts (CISG).</p>
+    <p>Für Verbraucher innerhalb der EU gilt ergänzend das zwingende Verbraucherschutzrecht
+       des Landes, in dem der Verbraucher seinen gewöhnlichen Aufenthalt hat
+       (Art. 6 Rom-I-Verordnung).</p>
+    <p>Gerichtsstand für Klagen gegen den Anbieter ist Düsseldorf, soweit der Kunde
+       Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches
+       Sondervermögen ist.</p>
+  </div>
+
+  <div class="card">
+    <h2>§ 12 Salvatorische Klausel & Änderungen</h2>
+    <p>Sollten einzelne Bestimmungen dieser AGB unwirksam sein, berührt dies die
+       Wirksamkeit der übrigen Bestimmungen nicht.</p>
+    <p>Der Anbieter behält sich vor, diese AGB mit einer Ankündigungsfrist von
+       <strong>30 Tagen</strong> zu ändern. Änderungen werden per E-Mail mitgeteilt.
+       Widerspricht der Kunde nicht innerhalb von 30 Tagen, gelten die neuen AGB
+       als angenommen. Auf dieses Widerspruchsrecht wird im Änderungsschreiben
+       ausdrücklich hingewiesen.</p>
+  </div>
+
+  <div class="notice">
+    ⚠️ Platzhalter-Daten – bitte vor Veröffentlichung durch Ihre echten Angaben ersetzen.
+    Diese AGB sind eine Vorlage und ersetzen keine individuelle Rechtsberatung.
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 WK Solutions · Einzelunternehmen</p>
+  <div>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WK Solutions – Software. Smarter.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #07090F;
+    --bg2: #0D111B;
+    --bg3: #141926;
+    --accent: #E8722A;
+    --accent2: #F59B5E;
+    --text: #F0EEE8;
+    --muted: #7A8098;
+    --border: rgba(255,255,255,0.07);
+    --card-bg: rgba(255,255,255,0.03);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5vw;
+    background: rgba(7,9,15,0.85);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+  nav ul { list-style: none; display: flex; gap: 2.5rem; }
+  nav ul a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--text); }
+  .nav-cta {
+    background: var(--accent);
+    color: #fff !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--accent2); color: #fff !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10rem 5vw 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -100px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(232,114,42,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,100,255,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--accent);
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 6.5vw, 6.5rem);
+    font-weight: 800;
+    line-height: 1.03;
+    letter-spacing: -0.03em;
+    max-width: 800px;
+    margin-bottom: 1.8rem;
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 540px;
+    margin-bottom: 3rem;
+    font-weight: 400;
+    line-height: 1.8;
+  }
+  .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+  .btn-secondary {
+    color: var(--muted);
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+  }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.04em;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── SECTION BASICS ── */
+  section { padding: 7rem 5vw; }
+  .section-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 20px; height: 1px;
+    background: var(--accent);
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+  }
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 500px;
+    margin-bottom: 4rem;
+    line-height: 1.8;
+  }
+
+  /* ── SERVICES ── */
+  #leistungen { background: var(--bg2); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+  .service-card {
+    background: var(--bg2);
+    padding: 2.5rem;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .service-card:hover { background: var(--bg3); }
+  .service-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: rgba(232,114,42,0.1);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+  }
+  .service-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.02em;
+  }
+  .service-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  .service-arrow {
+    position: absolute;
+    bottom: 2.5rem; right: 2.5rem;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.2s, border-color 0.2s;
+  }
+  .service-card:hover .service-arrow { opacity: 1; border-color: var(--accent); color: var(--accent); }
+
+  /* ── PRODUCT SECTION ── */
+  #produkte {
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  #produkte::before {
+    content: '';
+    position: absolute;
+    top: 50%; right: -100px;
+    transform: translateY(-50%);
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(232,114,42,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .product-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .product-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(232,114,42,0.1);
+    border: 1px solid rgba(232,114,42,0.25);
+    color: var(--accent2);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+  }
+  .product-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .product-info h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); }
+  .product-info p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+  .feature-list {
+    list-style: none;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .feature-list li {
+    display: flex; align-items: center; gap: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .feature-list li::before {
+    content: '✓';
+    width: 20px; height: 20px;
+    background: rgba(232,114,42,0.12);
+    color: var(--accent);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .product-visual {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-visual::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 40px;
+    background: rgba(255,255,255,0.025);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+  .browser-dots {
+    position: absolute;
+    top: 14px; left: 18px;
+    display: flex; gap: 6px;
+  }
+  .browser-dots span {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+  .browser-dots span:first-child { background: rgba(255,90,90,0.4); }
+  .browser-dots span:nth-child(2) { background: rgba(255,200,50,0.4); }
+  .browser-dots span:last-child { background: rgba(50,205,50,0.4); }
+  .browser-url {
+    position: absolute;
+    top: 11px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: var(--muted);
+    background: rgba(255,255,255,0.04);
+    padding: 0.2rem 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    min-width: 220px;
+    text-align: center;
+  }
+  .product-mock {
+    margin-top: 40px;
+    padding: 1.5rem;
+    width: 100%;
+  }
+  .mock-header {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+  }
+  .mock-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.82rem;
+  }
+  .mock-label { color: var(--muted); }
+  .mock-value-pos { color: #5EE58A; font-weight: 600; }
+  .mock-value-neg { color: #E8724E; font-weight: 600; }
+  .mock-value { color: var(--text); font-weight: 500; }
+  .mock-chart {
+    margin-top: 1.2rem;
+    display: flex;
+    gap: 6px;
+    align-items: flex-end;
+    height: 70px;
+  }
+  .bar {
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+    background: rgba(232,114,42,0.25);
+    transition: background 0.2s;
+  }
+  .bar:hover { background: rgba(232,114,42,0.5); }
+  .bar.highlight { background: var(--accent); }
+
+  /* ── ABOUT / APPROACH ── */
+  #ueber-uns { background: var(--bg2); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+  }
+  .values-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .value-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+  .value-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 28px;
+    margin-top: 0.1rem;
+    letter-spacing: 0.08em;
+  }
+  .value-item h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.01em;
+  }
+  .value-item p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* ── CONTACT ── */
+  #kontakt {
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  #kontakt::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse, rgba(232,114,42,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .contact-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .contact-inner h2 { margin-bottom: 1.2rem; }
+  .contact-inner p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .contact-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    transition: border-color 0.2s, background 0.2s;
+    min-width: 200px;
+    justify-content: center;
+  }
+  .contact-card:hover {
+    border-color: rgba(232,114,42,0.4);
+    background: rgba(232,114,42,0.05);
+  }
+  .contact-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(232,114,42,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2.5rem 5vw;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer p {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--text); }
+  .footer-links { display: flex; gap: 2rem; }
+
+  /* ── GRID DECORATION ── */
+  .grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    mask-image: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 100%);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav ul { display: none; }
+    .product-showcase, .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-stats { flex-direction: column; gap: 1.5rem; }
+    section { padding: 5rem 6vw; }
+  }
+
+  /* ── CONTACT FORM ── */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .contact-info-col h2 { text-align: left; }
+  .contact-info-col p { color: var(--muted); font-size: 1rem; line-height: 1.85; margin-bottom: 2rem; text-align: left; }
+  .contact-detail { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+  .contact-detail:last-of-type { border-bottom: none; }
+  .contact-detail-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(232,114,42,0.1); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .contact-detail-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .contact-detail-value { font-size: 0.9rem; color: var(--text); font-weight: 500; }
+  .contact-detail-value a { color: var(--text); text-decoration: none; }
+  .contact-detail-value a:hover { color: var(--accent2); }
+  .contact-form-box { background: rgba(255,255,255,0.025); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.2rem; }
+  .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+  .form-group input, .form-group select, .form-group textarea {
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 10px;
+    padding: 0.85rem 1.1rem; color: var(--text); font-family: 'Manrope', sans-serif;
+    font-size: 0.93rem; outline: none; transition: border-color 0.2s, background 0.2s; width: 100%; -webkit-appearance: none;
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(122,128,152,0.5); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: rgba(232,114,42,0.5); background: rgba(232,114,42,0.04); }
+  .form-group select { cursor: pointer; }
+  .form-group select option { background: #141926; color: var(--text); }
+  .form-group textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+  .form-check { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 1.5rem; }
+  .form-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; cursor: pointer; margin-top: 2px; accent-color: var(--accent); }
+  .form-check label { font-size: 0.82rem; color: var(--muted); line-height: 1.6; cursor: pointer; }
+  .form-check label a { color: var(--accent2); }
+  .btn-submit { width: 100%; padding: 1rem; background: var(--accent); color: #fff; border: none; border-radius: 10px; font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background 0.2s, transform 0.15s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+  .btn-submit:hover { background: var(--accent2); transform: translateY(-1px); }
+  .btn-submit:active { transform: translateY(0); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .form-success { display: none; text-align: center; padding: 2.5rem 1rem; }
+  .form-success .success-icon { width: 60px; height: 60px; border-radius: 50%; background: rgba(94,229,138,0.12); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 1.2rem; }
+  .form-success h3 { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .form-success p { color: var(--muted); font-size: 0.9rem; margin: 0; }
+  @media (max-width: 768px) {
+    .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  /* ── COOKIE BANNER ── */
+  #cookieBanner {
+    position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+    z-index: 9999;
+    width: min(720px, calc(100vw - 2rem));
+    background: #0D111B;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+    padding: 1.8rem 2rem;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  #cookieBanner.hidden {
+    opacity: 0; transform: translateX(-50%) translateY(20px); pointer-events: none;
+  }
+  .cb-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.3rem; }
+  .cb-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .cb-text { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+  .cb-text a { color: var(--accent2); text-decoration: none; }
+  .cb-text a:hover { text-decoration: underline; }
+  .cb-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+  .cb-categories {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem;
+    margin-bottom: 1.3rem;
+  }
+  .cb-cat {
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    border-radius: 10px; padding: 0.7rem 0.9rem;
+    display: flex; align-items: center; gap: 0.6rem;
+    cursor: pointer; transition: border-color 0.2s, background 0.2s;
+    user-select: none;
+  }
+  .cb-cat:has(input:checked) {
+    border-color: rgba(232,114,42,0.4); background: rgba(232,114,42,0.05);
+  }
+  .cb-cat input[type="checkbox"] {
+    width: 16px; height: 16px; flex-shrink: 0;
+    accent-color: var(--accent); cursor: pointer;
+  }
+  .cb-cat-label { font-size: 0.78rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+  .cb-cat-sub { font-size: 0.68rem; color: var(--muted); }
+  .cb-cat-required .cb-cat-label { color: #5EE58A; }
+
+  .cb-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+  .cb-btn {
+    flex: 1; min-width: 120px; padding: 0.7rem 1rem;
+    border-radius: 9px; font-family: 'Manrope', sans-serif;
+    font-size: 0.83rem; font-weight: 600; cursor: pointer;
+    border: none; transition: background 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .cb-btn-accept { background: var(--accent); color: #fff; }
+  .cb-btn-accept:hover { background: var(--accent2); }
+  .cb-btn-selection { background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--border); }
+  .cb-btn-selection:hover { background: rgba(255,255,255,0.1); }
+  .cb-btn-decline { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+  .cb-btn-decline:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+
+  .cb-reopen {
+    position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 9998;
+    background: #0D111B; border: 1px solid var(--border);
+    border-radius: 999px; padding: 0.55rem 1rem;
+    font-size: 0.78rem; font-weight: 600; color: var(--muted);
+    cursor: pointer; display: none; align-items: center; gap: 0.4rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .cb-reopen:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+
+  @media (max-width: 600px) {
+    .cb-categories { grid-template-columns: 1fr 1fr; }
+    .cb-actions { flex-direction: column; }
+    .cb-btn { min-width: unset; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.7s ease both; }
+  h1 { animation: fadeUp 0.7s 0.1s ease both; }
+  .hero-sub { animation: fadeUp 0.7s 0.2s ease both; }
+  .btn-group { animation: fadeUp 0.7s 0.3s ease both; }
+  .hero-stats { animation: fadeUp 0.7s 0.45s ease both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">WK<span>.</span>Solutions</a>
+  <ul>
+    <li><a href="#leistungen">Leistungen</a></li>
+    <li><a href="#produkte">Produkte</a></li>
+    <li><a href="#ueber-uns">Über uns</a></li>
+    <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="grid-bg"></div>
+  <div class="hero-eyebrow">WK Solutions </div>
+  <h1>Software.<br><em>Smarter.</em><br>Skalierbar.</h1>
+  <p class="hero-sub">
+    Entwicklung, Betrieb und Vertrieb von modernen SaaS-Lösungen und IT-Dienstleistungen –
+    individuell, effizient und zukunftssicher.
+  </p>
+  <div class="btn-group">
+    <a href="#produkte" class="btn-primary">Unsere Produkte →</a>
+    <a href="#kontakt" class="btn-secondary">Kontakt aufnehmen</a>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">SaaS</div>
+      <div class="stat-label">Fokus & Expertise</div>
+    </div>
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Eigenentwicklung</div>
+    </div>
+    <div>
+      <div class="stat-num">DE</div>
+      <div class="stat-label">Standort Deutschland</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="leistungen">
+  <div class="section-tag">Leistungen</div>
+  <h2>Was wir machen</h2>
+  <p class="section-intro">
+    Von der ersten Idee bis zum fertigen Produkt – wir begleiten digitale
+    Projekte ganzheitlich und mit technischem Tiefgang.
+  </p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <h3>SaaS-Entwicklung</h3>
+      <p>Wir entwickeln skalierbare Web-Applikationen als Software-as-a-Service –
+         von der Architektur über das Backend bis zur fertigen Benutzeroberfläche.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🖥</div>
+      <h3>IT-Dienstleistungen</h3>
+      <p>Beratung, Umsetzung und Betrieb maßgeschneiderter IT-Lösungen für
+         Unternehmen jeder Größe – zuverlässig und lösungsorientiert.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🚀</div>
+      <h3>Produkt-Vertrieb</h3>
+      <p>Eigene digitale Produkte, die reale Probleme lösen. Wir entwickeln
+         und vertreiben Software, die echten Mehrwert schafft.</p>
+      <div class="service-arrow">→</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <h3>Wartung & Betrieb</h3>
+      <p>Zuverlässiger Betrieb, Monitoring und kontinuierliche Weiterentwicklung
+         bestehender Anwendungen und Systeme.</p>
+      <div class="service-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUKTE -->
+<section id="produkte">
+  <div class="product-showcase">
+    <div class="product-info">
+      <div class="product-badge">Produkt #01 – Live</div>
+      <h2>Immo<em style="color:var(--accent)">Analyzer</em></h2>
+      <p>
+        Der ImmoAnalyzer ist eine professionelle Web-App zur detaillierten
+        Analyse von Immobilieninvestitionen – präzise, schnell und übersichtlich.
+      </p>
+      <p>
+        Berechnen Sie Cashflows vor und nach Steuern, analysieren Sie
+        Finanzierungsstrukturen und treffen Sie datenbasierte Investitionsentscheidungen.
+      </p>
+      <ul class="feature-list">
+        <li>Cashflow-Analyse vor &amp; nach Steuern</li>
+        <li>Finanzierungsrechner &amp; Tilgungsplan</li>
+        <li>Renditeberechnung (Brutto- &amp; Nettomietrendite)</li>
+        <li>Steuerliche Abschreibung (AfA)</li>
+        <li>Übersichtliche Auswertungen &amp; Exportfunktion</li>
+      </ul>
+      <div class="btn-group" style="margin-top:2rem">
+        <a href="https://immo-analyzer.com" target="_blank" class="btn-primary">
+          Jetzt ausprobieren →
+        </a>
+      </div>
+    </div>
+    <div class="product-visual">
+      <div class="browser-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="browser-url">immo-analyzer.com</div>
+      <div class="product-mock">
+        <div class="mock-header">📊 Immobilien-Analyse · Musterimmobilie</div>
+        <div class="mock-row">
+          <span class="mock-label">Kaufpreis</span>
+          <span class="mock-value">350.000 €</span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-label">Kaltmiete p.a.</span>
+          <span class="mock-value">14.400 €</span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-label">Bruttomietrendite</span>
+          <span class="mock-value-pos">4,11 %</span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-label">Cashflow vor Steuern</span>
+          <span class="mock-value-pos">+420 € / Monat</span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-label">Cashflow nach Steuern</span>
+          <span class="mock-value-pos">+285 € / Monat</span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-label">AfA (2 %)</span>
+          <span class="mock-value">5.600 € / Jahr</span>
+        </div>
+        <div class="mock-chart" title="Jahres-Cashflow-Verlauf">
+          <div class="bar" style="height:35%"></div>
+          <div class="bar" style="height:42%"></div>
+          <div class="bar" style="height:50%"></div>
+          <div class="bar" style="height:55%"></div>
+          <div class="bar" style="height:62%"></div>
+          <div class="bar highlight" style="height:70%"></div>
+          <div class="bar" style="height:75%"></div>
+          <div class="bar" style="height:80%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÜBER UNS -->
+<section id="ueber-uns">
+  <div class="about-grid">
+    <div>
+      <div class="section-tag">Über uns</div>
+      <h2>Technologie mit<br>Substanz</h2>
+      <div class="about-text">
+        <p>
+          WK Solutions ist ein Unternehmen mit dem Fokus auf die
+          Entwicklung, den Betrieb und den Vertrieb von hochwertigen
+          Software-Produkten und IT-Dienstleistungen.
+        </p>
+        <p>
+          Der Anspruch: Lösungen bauen, die nicht nur technisch überzeugen,
+          sondern echte Probleme lösen und messbaren Mehrwert liefern.
+        </p>
+      </div>
+    </div>
+    <div class="values-list">
+      <div class="value-item">
+        <div class="value-num">01</div>
+        <div>
+          <h4>Technische Exzellenz</h4>
+          <p>Moderne Technologien, sauberer Code und skalierbare Architekturen –
+             keine Abkürzungen auf Kosten der Qualität.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">02</div>
+        <div>
+          <h4>Nutzerorientierung</h4>
+          <p>Software, die intuitiv funktioniert und echte Workflows verbessert –
+             UX ist kein Bonus, sondern Kern des Produkts.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">03</div>
+        <div>
+          <h4>Unabhängigkeit & Agilität</h4>
+          <p>Als Unternehmen schnell, flexibel und ohne Overhead –
+             kurze Wege, klare Entscheidungen.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">04</div>
+        <div>
+          <h4>Kontinuierliches Wachstum</h4>
+          <p>Jedes Produkt wird aktiv weiterentwickelt – Feedback, neue Features
+             und stabile Performance als laufender Prozess.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="contact-layout">
+
+    <!-- Linke Spalte: Info -->
+    <div class="contact-info-col">
+      <div class="section-tag">Kontakt</div>
+      <h2>Projekt?<br>Frage?<br>Einfach<br>melden.</h2>
+      <p>Ob IT-Projekt, Produktfeedback oder Kooperationsanfrage – ich freue mich auf Ihre Nachricht.</p>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">✉️</div>
+        <div>
+          <div class="contact-detail-label">E-Mail</div>
+          <div class="contact-detail-value"><a href="mailto:info@wk-solutions.de">info@wk-solutions.de</a></div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📞</div>
+        <div>
+          <div class="contact-detail-label">Telefon</div>
+          <div class="contact-detail-value"><a href="tel:+4921112345">+49 179 1634387</a></div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div>
+          <div class="contact-detail-label">Standort</div>
+          <div class="contact-detail-value">Alsdorf, Deutschland</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">⏱</div>
+        <div>
+          <div class="contact-detail-label">Antwortzeit</div>
+          <div class="contact-detail-value">In der Regel innerhalb von 24h</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rechte Spalte: Formular -->
+    <div class="contact-form-box">
+      <div id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">Vorname *</label>
+            <input type="text" id="fname" placeholder="Max" required>
+          </div>
+          <div class="form-group">
+            <label for="lname">Nachname *</label>
+            <input type="text" id="lname" placeholder="Mustermann" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">E-Mail-Adresse *</label>
+          <input type="email" id="email" placeholder="max@beispiel.de" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Unternehmen</label>
+          <input type="text" id="company" placeholder="Musterfirma GmbH (optional)">
+        </div>
+        <div class="form-group">
+          <label for="subject">Betreff *</label>
+          <select id="subject" required>
+            <option value="" disabled selected>Bitte auswählen …</option>
+            <option value="SaaS-Entwicklung">SaaS-Entwicklung</option>
+            <option value="IT-Dienstleistung">IT-Dienstleistung</option>
+            <option value="ImmoAnalyzer Feedback">ImmoAnalyzer – Feedback</option>
+            <option value="Kooperation">Kooperationsanfrage</option>
+            <option value="Sonstiges">Sonstiges</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Nachricht *</label>
+          <textarea id="message" placeholder="Beschreiben Sie kurz Ihr Anliegen …" required></textarea>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="privacy" required>
+          <label for="privacy">
+            Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen
+            und bin mit der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage einverstanden. *
+          </label>
+        </div>
+        <button class="btn-submit" id="submitBtn" onclick="sendForm()">
+          Nachricht senden →
+        </button>
+      </div>
+
+      <!-- Erfolgsmeldung -->
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✓</div>
+        <h3>Nachricht gesendet!</h3>
+        <p>Vielen Dank – ich melde mich in der Regel innerhalb von 24 Stunden bei Ihnen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function sendForm() {
+  const fname    = document.getElementById('fname').value.trim();
+  const lname    = document.getElementById('lname').value.trim();
+  const email    = document.getElementById('email').value.trim();
+  const company  = document.getElementById('company').value.trim();
+  const subject  = document.getElementById('subject').value;
+  const message  = document.getElementById('message').value.trim();
+  const privacy  = document.getElementById('privacy').checked;
+
+  if (!fname || !lname || !email || !subject || !message || !privacy) {
+    alert('Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie die Datenschutzerklärung.');
+    return;
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+    return;
+  }
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Wird gesendet …';
+
+  const body = `Name: ${fname} ${lname}\nE-Mail: ${email}${company ? '\nUnternehmen: ' + company : ''}\n\nNachricht:\n${message}`;
+  const mailtoLink = `mailto:info@wk-solutions.de?subject=${encodeURIComponent('[WK Solutions] ' + subject)}&body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailtoLink;
+
+  setTimeout(() => {
+    document.getElementById('contactForm').style.display = 'none';
+    const success = document.getElementById('formSuccess');
+    success.style.display = 'block';
+  }, 800);
+}
+</script>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 WK Solutions · Deutschland</p>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
+    <a href="cookie-richtlinie.html">Cookies</a>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div id="cookieBanner" class="hidden" role="dialog" aria-label="Cookie-Einstellungen">
+  <div class="cb-top">
+    <div>
+      <div class="cb-title">🍪 Diese Website verwendet Cookies</div>
+      <p class="cb-text">
+        Cookies werden zur Benutzerführung und Webanalyse verwendet und helfen dabei, diese
+        Webseite zu verbessern. Durch die weitere Nutzung erklären Sie sich mit unserer
+        <a href="cookie-richtlinie.html" target="_blank">Cookie-Richtlinie</a> einverstanden.
+      </p>
+    </div>
+  </div>
+
+  <div class="cb-categories">
+    <label class="cb-cat cb-cat-required">
+      <input type="checkbox" checked disabled>
+      <div>
+        <div class="cb-cat-label">🔒 Erforderlich</div>
+        <div class="cb-cat-sub">Immer aktiv</div>
+      </div>
+    </label>
+    <label class="cb-cat" id="catFunctional">
+      <input type="checkbox" id="chkFunctional">
+      <div>
+        <div class="cb-cat-label">⚙️ Funktionell</div>
+        <div class="cb-cat-sub">Komfortfunktionen</div>
+      </div>
+    </label>
+    <label class="cb-cat" id="catPerformance">
+      <input type="checkbox" id="chkPerformance">
+      <div>
+        <div class="cb-cat-label">📊 Performance</div>
+        <div class="cb-cat-sub">Webanalyse</div>
+      </div>
+    </label>
+    <label class="cb-cat" id="catMarketing">
+      <input type="checkbox" id="chkMarketing">
+      <div>
+        <div class="cb-cat-label">📣 Marketing</div>
+        <div class="cb-cat-sub">Drittanbieter</div>
+      </div>
+    </label>
+  </div>
+
+  <div class="cb-actions">
+    <button class="cb-btn cb-btn-accept" onclick="cookieAcceptAll()">Alle akzeptieren</button>
+    <button class="cb-btn cb-btn-selection" onclick="cookieAcceptSelection()">Nur Auswahl akzeptieren</button>
+    <button class="cb-btn cb-btn-decline" onclick="cookieDecline()">Alle ablehnen</button>
+  </div>
+</div>
+
+<!-- Reopen button -->
+<button class="cb-reopen" id="cbReopen" onclick="cookieReopenBanner()" aria-label="Cookie-Einstellungen öffnen">
+  🍪 Cookie-Einstellungen
+</button>
+
+<!-- ╔══════════════════════════════════════════════════════╗
+     ║  PostHog – wird NUR nach Zustimmung geladen          ║
+     ║  ► YOUR_POSTHOG_KEY durch Ihren echten Key ersetzen  ║
+     ║  ► YOUR_POSTHOG_HOST = 'https://eu.i.posthog.com'    ║
+     ║    (EU-Cloud) oder 'https://us.i.posthog.com'        ║
+     ╚══════════════════════════════════════════════════════╝ -->
+<script>
+(function() {
+  // ── Konfiguration ──────────────────────────────────────
+  const POSTHOG_KEY  = 'phc_qWuuLYPE2A5xSJLx58mwdwseKhySsZJ9K2zf9Q9yc24Y';   // ← hier eintragen
+  const POSTHOG_HOST = 'https://eu.i.posthog.com'; // EU-Cloud (DSGVO)
+  const STORAGE_KEY  = 'wks_cookie_consent';
+  // ───────────────────────────────────────────────────────
+
+  /* ── PostHog laden & initialisieren ── */
+  function loadPostHog() {
+    if (window.__phLoaded) return;
+    window.__phLoaded = true;
+
+    // PostHog Snippet (offiziell, kompakt)
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]);t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureFlagEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+
+    posthog.init(POSTHOG_KEY, {
+      api_host: POSTHOG_HOST,
+      person_profiles: 'identified_only', // DSGVO: keine Profile für anonyme Nutzer
+      persistence: 'localStorage',
+      capture_pageview: true,
+      capture_pageleave: true,
+      autocapture: true,
+      loaded: function(ph) {
+        console.log('[WKS] PostHog geladen ✓');
+      }
+    });
+  }
+
+  /* ── PostHog deaktivieren & Daten löschen ── */
+  function disablePostHog() {
+    if (window.posthog && typeof posthog.opt_out_capturing === 'function') {
+      posthog.opt_out_capturing();
+      console.log('[WKS] PostHog deaktiviert.');
+    }
+  }
+
+  /* ── Consent anwenden ── */
+  function applyConsent(consent) {
+    if (consent && consent.performance) {
+      loadPostHog();
+    } else {
+      disablePostHog();
+    }
+  }
+
+  /* ── localStorage Helfer ── */
+  function getConsent() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch(e) { return null; }
+  }
+  function saveConsent(obj) {
+    obj.timestamp = new Date().toISOString();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+  }
+
+  /* ── Banner UI ── */
+  function hideBanner() {
+    document.getElementById('cookieBanner').classList.add('hidden');
+    document.getElementById('cbReopen').style.display = 'flex';
+  }
+  function showBanner() {
+    document.getElementById('cookieBanner').classList.remove('hidden');
+    document.getElementById('cbReopen').style.display = 'none';
+  }
+
+  /* ── Öffentliche Funktionen ── */
+  window.cookieAcceptAll = function() {
+    document.getElementById('chkFunctional').checked  = true;
+    document.getElementById('chkPerformance').checked = true;
+    document.getElementById('chkMarketing').checked   = true;
+    const consent = { required: true, functional: true, performance: true, marketing: true };
+    saveConsent(consent);
+    applyConsent(consent);
+    hideBanner();
+  };
+
+  window.cookieAcceptSelection = function() {
+    const consent = {
+      required:    true,
+      functional:  document.getElementById('chkFunctional').checked,
+      performance: document.getElementById('chkPerformance').checked,
+      marketing:   document.getElementById('chkMarketing').checked,
+    };
+    saveConsent(consent);
+    applyConsent(consent);
+    hideBanner();
+  };
+
+  window.cookieDecline = function() {
+    const consent = { required: true, functional: false, performance: false, marketing: false };
+    saveConsent(consent);
+    applyConsent(consent);
+    hideBanner();
+  };
+
+  window.cookieReopenBanner = function() {
+    const c = getConsent();
+    if (c) {
+      document.getElementById('chkFunctional').checked  = !!c.functional;
+      document.getElementById('chkPerformance').checked = !!c.performance;
+      document.getElementById('chkMarketing').checked   = !!c.marketing;
+    }
+    showBanner();
+  };
+
+  /* ── Init ── */
+  window.addEventListener('DOMContentLoaded', function() {
+    const c = getConsent();
+    if (!c) {
+      // Kein gespeicherter Consent → Banner zeigen, PostHog NICHT laden
+      setTimeout(showBanner, 600);
+    } else {
+      // Consent vorhanden → direkt anwenden
+      document.getElementById('cbReopen').style.display = 'flex';
+      applyConsent(c);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

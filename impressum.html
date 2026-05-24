@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum – WK Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #07090F; --bg2: #0D111B; --bg3: #141926;
+    --accent: #E8722A; --accent2: #F59B5E;
+    --text: #F0EEE8; --muted: #7A8098; --border: rgba(255,255,255,0.07);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Manrope', sans-serif; font-size: 16px; line-height: 1.7; }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5vw;
+    background: rgba(7,9,15,0.9); backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-family: 'Syne', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--text); text-decoration: none; }
+  .logo span { color: var(--accent); }
+  .back-link { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+  .back-link:hover { color: var(--text); }
+  main { max-width: 760px; margin: 0 auto; padding: 8rem 5vw 6rem; }
+  .page-tag {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .page-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+  h1 { font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+  .last-updated { font-size: 0.82rem; color: var(--muted); margin-bottom: 3.5rem; }
+  .card {
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    border-radius: 16px; padding: 2rem 2.5rem; margin-bottom: 1.5rem;
+  }
+  h2 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.2rem; color: var(--accent2); letter-spacing: -0.01em; }
+  p { color: var(--muted); font-size: 0.95rem; line-height: 1.85; margin-bottom: 0.6rem; }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--text); font-weight: 600; }
+  a { color: var(--accent2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .info-row { display: flex; gap: 1rem; margin-bottom: 0.5rem; font-size: 0.95rem; }
+  .info-label { color: var(--muted); min-width: 160px; flex-shrink: 0; }
+  .info-value { color: var(--text); }
+  .notice {
+    background: rgba(232,114,42,0.06); border: 1px solid rgba(232,114,42,0.2);
+    border-radius: 10px; padding: 1rem 1.5rem; margin-top: 2rem;
+    font-size: 0.85rem; color: var(--muted);
+  }
+  footer { padding: 2.5rem 5vw; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  footer p { font-size: 0.82rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; margin-left: 2rem; }
+  footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="wk-solutions.html" class="logo">WK<span>.</span>Solutions</a>
+  <a href="wk-solutions.html" class="back-link">← Zurück zur Startseite</a>
+</nav>
+
+<main>
+  <div class="page-tag">Rechtliches</div>
+  <h1>Impressum</h1>
+  <p class="last-updated">Angaben gemäß § 5 TMG und Art. 10 EU-Richtlinie 2000/31/EG</p>
+
+  <div class="card">
+    <h2>Anbieter & Verantwortlicher</h2>
+    <div class="info-row"><span class="info-label">Name</span><span class="info-value"><strong>Max Mustermann</strong></span></div>
+    <div class="info-row"><span class="info-label">Unternehmensform</span><span class="info-value">Einzelunternehmen</span></div>
+    <div class="info-row"><span class="info-label">Unternehmensname</span><span class="info-value">WK Solutions</span></div>
+    <div class="info-row"><span class="info-label">Straße</span><span class="info-value">Am Alten Gericht 5</span></div>
+    <div class="info-row"><span class="info-label">PLZ / Ort</span><span class="info-value">52477 Alsdorf</span></div>
+    <div class="info-row"><span class="info-label">Land</span><span class="info-value">Deutschland</span></div>
+  </div>
+
+  <div class="card">
+    <h2>Kontakt</h2>
+    <div class="info-row"><span class="info-label">Telefon</span><span class="info-value"><a href="tel:+4921112345">+49 179 1634387</a></span></div>
+    <div class="info-row"><span class="info-label">E-Mail</span><span class="info-value"><a href="mailto:info@wk-solutions.de">info@wk-solutions.de</a></span></div>
+    <div class="info-row"><span class="info-label">Website</span><span class="info-value"><a href="https://wk-solutions.de" target="_blank">wk-solutions.de</a></span></div>
+  </div>
+
+  <div class="card">
+    <h2>Steuerliche Angaben</h2>
+    <div class="info-row"><span class="info-label">Steuernummer</span><span class="info-value">123/456/7890</span></div>
+    <div class="info-row"><span class="info-label">USt-IdNr. (§ 27a UStG)</span><span class="info-value">DE123456789</span></div>
+  </div>
+
+  <div class="card">
+    <h2>Inhaltlich verantwortlich</h2>
+    <p>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</p>
+    <p><strong>Max Mustermann</strong>, Am Alten Gericht 5, 52477 Alsdorf</p>
+  </div>
+
+  <div class="card">
+    <h2>EU-Streitschlichtung</h2>
+    <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+       <a href="https://ec.europa.eu/consumers/odr" target="_blank">https://ec.europa.eu/consumers/odr</a></p>
+    <p>Unsere E-Mail-Adresse finden Sie oben im Impressum. Wir sind nicht bereit oder verpflichtet,
+       an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+  </div>
+
+  <div class="card">
+    <h2>Haftungshinweis</h2>
+    <p>Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte
+       externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber
+       verantwortlich.</p>
+    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
+       dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art
+       der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen
+       Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+  </div>
+
+  <div class="notice">
+    ⚠️ Platzhalter-Daten – bitte vor Veröffentlichung durch Ihre echten Angaben ersetzen.
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 WK Solutions · Einzelunternehmen</p>
+  <div>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
+  </div>
+</footer>
+</body>
+</html>

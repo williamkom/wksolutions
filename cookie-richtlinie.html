@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie-Richtlinie – WK Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #07090F; --bg2: #0D111B; --bg3: #141926;
+    --accent: #E8722A; --accent2: #F59B5E;
+    --text: #F0EEE8; --muted: #7A8098; --border: rgba(255,255,255,0.07);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Manrope', sans-serif; font-size: 16px; line-height: 1.7; }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5vw;
+    background: rgba(7,9,15,0.9); backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-family: 'Syne', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--text); text-decoration: none; }
+  .logo span { color: var(--accent); }
+  .back-link { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+  .back-link:hover { color: var(--text); }
+  main { max-width: 760px; margin: 0 auto; padding: 8rem 5vw 6rem; }
+  .page-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+  .page-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+  h1 { font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+  .last-updated { font-size: 0.82rem; color: var(--muted); margin-bottom: 3.5rem; }
+  .card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 16px; padding: 2rem 2.5rem; margin-bottom: 1.5rem; }
+  h2 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.2rem; color: var(--accent2); letter-spacing: -0.01em; }
+  p { color: var(--muted); font-size: 0.95rem; line-height: 1.85; margin-bottom: 0.8rem; }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--text); font-weight: 600; }
+  a { color: var(--accent2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Cookie category cards */
+  .cookie-category {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .cookie-cat-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 1.5rem;
+    background: rgba(255,255,255,0.03);
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .cookie-cat-header:hover { background: rgba(255,255,255,0.05); }
+  .cookie-cat-left { display: flex; align-items: center; gap: 0.9rem; }
+  .cookie-cat-icon { font-size: 1.1rem; }
+  .cookie-cat-title { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--text); }
+  .cookie-cat-badge {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 999px;
+  }
+  .badge-required { background: rgba(94,229,138,0.12); color: #5EE58A; border: 1px solid rgba(94,229,138,0.25); }
+  .badge-optional { background: rgba(232,114,42,0.1); color: var(--accent2); border: 1px solid rgba(232,114,42,0.2); }
+  .cookie-cat-chevron { color: var(--muted); font-size: 0.8rem; transition: transform 0.2s; }
+  .cookie-cat-header.open .cookie-cat-chevron { transform: rotate(180deg); }
+  .cookie-cat-body {
+    display: none;
+    padding: 1.2rem 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .cookie-cat-body.open { display: block; }
+  .cookie-cat-body p { margin-bottom: 1rem; }
+  .cookie-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+  .cookie-table th { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; padding: 0.5rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); }
+  .cookie-table td { font-size: 0.82rem; color: var(--muted); padding: 0.6rem 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.03); vertical-align: top; }
+  .cookie-table td strong { color: var(--text); }
+  .cookie-table tr:last-child td { border-bottom: none; }
+
+  .manage-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--accent); color: #fff;
+    padding: 0.8rem 1.6rem; border-radius: 8px;
+    text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    border: none; cursor: pointer; transition: background 0.2s;
+    margin-top: 1.5rem;
+  }
+  .manage-btn:hover { background: var(--accent2); text-decoration: none; }
+
+  .notice { background: rgba(232,114,42,0.06); border: 1px solid rgba(232,114,42,0.2); border-radius: 10px; padding: 1rem 1.5rem; margin-top: 2rem; font-size: 0.85rem; color: var(--muted); }
+  footer { padding: 2.5rem 5vw; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  footer p { font-size: 0.82rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; margin-left: 2rem; }
+  footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="wk-solutions.html" class="logo">WK<span>.</span>Solutions</a>
+  <a href="wk-solutions.html" class="back-link">← Zurück zur Startseite</a>
+</nav>
+
+<main>
+  <div class="page-tag">Rechtliches</div>
+  <h1>Cookie-Richtlinie</h1>
+  <p class="last-updated">Stand: Januar 2025 · Gemäß DSGVO (EU) 2016/679 und ePrivacy-Richtlinie 2002/58/EG</p>
+
+  <div class="card">
+    <h2>Was sind Cookies?</h2>
+    <p>Cookies sind kleine Textdateien, die beim Besuch einer Website auf Ihrem Endgerät gespeichert werden.
+       Sie ermöglichen es, Einstellungen zu speichern, die Nutzung zu analysieren und das Nutzererlebnis
+       zu verbessern.</p>
+    <p>Diese Website verwendet Cookies für vier verschiedene Zwecke, die Sie im Folgenden einsehen
+       und verwalten können. Technisch notwendige Cookies können nicht deaktiviert werden, da sie
+       für den Betrieb der Website erforderlich sind.</p>
+  </div>
+
+  <div class="card">
+    <h2>Cookie-Kategorien im Überblick</h2>
+
+    <!-- Unbedingt erforderlich -->
+    <div class="cookie-category">
+      <div class="cookie-cat-header" onclick="toggleCat(this)">
+        <div class="cookie-cat-left">
+          <span class="cookie-cat-icon">🔒</span>
+          <span class="cookie-cat-title">Unbedingt erforderlich</span>
+          <span class="cookie-cat-badge badge-required">Immer aktiv</span>
+        </div>
+        <span class="cookie-cat-chevron">▼</span>
+      </div>
+      <div class="cookie-cat-body">
+        <p>Diese Cookies sind für das ordnungsgemäße Funktionieren der Website unerlässlich und können
+           nicht deaktiviert werden. Sie speichern keine persönlich identifizierbaren Informationen.</p>
+        <table class="cookie-table">
+          <tr><th>Name</th><th>Zweck</th><th>Laufzeit</th></tr>
+          <tr><td><strong>wks_session</strong></td><td>Sitzungsverwaltung, Authentifizierung</td><td>Sitzung</td></tr>
+          <tr><td><strong>wks_cookie_consent</strong></td><td>Speichert Ihre Cookie-Einstellungen</td><td>12 Monate</td></tr>
+          <tr><td><strong>csrf_token</strong></td><td>Schutz vor Cross-Site-Request-Forgery</td><td>Sitzung</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Funktionell -->
+    <div class="cookie-category">
+      <div class="cookie-cat-header" onclick="toggleCat(this)">
+        <div class="cookie-cat-left">
+          <span class="cookie-cat-icon">⚙️</span>
+          <span class="cookie-cat-title">Funktionell</span>
+          <span class="cookie-cat-badge badge-optional">Optional</span>
+        </div>
+        <span class="cookie-cat-chevron">▼</span>
+      </div>
+      <div class="cookie-cat-body">
+        <p>Funktionelle Cookies ermöglichen erweiterte Funktionen wie gespeicherte Spracheinstellungen,
+           Benutzerpräferenzen oder vorausgefüllte Formulare. Ohne diese Cookies stehen bestimmte
+           Komfortfunktionen nicht zur Verfügung.</p>
+        <table class="cookie-table">
+          <tr><th>Name</th><th>Zweck</th><th>Laufzeit</th></tr>
+          <tr><td><strong>wks_lang</strong></td><td>Gespeicherte Spracheinstellung</td><td>12 Monate</td></tr>
+          <tr><td><strong>wks_theme</strong></td><td>Gespeichertes Erscheinungsbild (Dark/Light)</td><td>12 Monate</td></tr>
+          <tr><td><strong>wks_prefs</strong></td><td>Individuelle Nutzerpräferenzen</td><td>6 Monate</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Performance -->
+    <div class="cookie-category">
+      <div class="cookie-cat-header" onclick="toggleCat(this)">
+        <div class="cookie-cat-left">
+          <span class="cookie-cat-icon">📊</span>
+          <span class="cookie-cat-title">Performance</span>
+          <span class="cookie-cat-badge badge-optional">Optional</span>
+        </div>
+        <span class="cookie-cat-chevron">▼</span>
+      </div>
+      <div class="cookie-cat-body">
+        <p>Performance-Cookies helfen uns zu verstehen, wie Besucher mit der Website interagieren.
+           Wir verwenden <strong>PostHog</strong> (EU-Cloud, gehostet in der EU) für anonyme
+           Nutzungsanalysen – ohne Weitergabe an Dritte. Die Daten werden ausschließlich zur
+           Verbesserung unserer Website genutzt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.</p>
+        <table class="cookie-table">
+          <tr><th>Name</th><th>Anbieter</th><th>Zweck</th><th>Laufzeit</th></tr>
+          <tr><td><strong>ph_*_posthog</strong></td><td>PostHog (EU-Cloud)</td><td>Anonyme Nutzeranalyse, Seitenaufrufe, Events</td><td>1 Jahr</td></tr>
+          <tr><td><strong>ph_*_window_id</strong></td><td>PostHog</td><td>Sitzungsverfolgung innerhalb eines Besuchs</td><td>Sitzung</td></tr>
+          <tr><td><strong>ph_opt_in_out_*</strong></td><td>PostHog</td><td>Speichert Opt-out-Entscheidung des Nutzers</td><td>1 Jahr</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Marketing -->
+    <div class="cookie-category">
+      <div class="cookie-cat-header" onclick="toggleCat(this)">
+        <div class="cookie-cat-left">
+          <span class="cookie-cat-icon">📣</span>
+          <span class="cookie-cat-title">Marketing / Third Party</span>
+          <span class="cookie-cat-badge badge-optional">Optional</span>
+        </div>
+        <span class="cookie-cat-chevron">▼</span>
+      </div>
+      <div class="cookie-cat-body">
+        <p>Marketing-Cookies werden von Drittanbietern gesetzt, um Ihnen relevante Werbung anzuzeigen
+           und Kampagnen auszuwerten. Diese Cookies verfolgen Sie über verschiedene Websites hinweg.
+           Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO – nur mit Ihrer ausdrücklichen Einwilligung.</p>
+        <table class="cookie-table">
+          <tr><th>Name</th><th>Anbieter</th><th>Zweck</th><th>Laufzeit</th></tr>
+          <tr><td><strong>_fbp</strong></td><td>Meta (Facebook)</td><td>Conversion-Tracking</td><td>3 Monate</td></tr>
+          <tr><td><strong>li_fat_id</strong></td><td>LinkedIn</td><td>Conversion-Tracking</td><td>30 Tage</td></tr>
+          <tr><td><strong>_gcl_au</strong></td><td>Google Ads</td><td>Anzeigen-Conversion</td><td>3 Monate</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <button class="manage-btn" onclick="window.opener ? window.close() : history.back(); setTimeout(()=>{ if(window.wksCookieBanner) window.wksCookieBanner.open(); }, 300);">
+      ⚙️ Cookie-Einstellungen verwalten
+    </button>
+  </div>
+
+  <div class="card">
+    <h2>Ihre Rechte & Widerrufsrecht</h2>
+    <p>Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie
+       unsere Cookie-Einstellungen über den Button oben oder den Link im Footer dieser Website aufrufen.</p>
+    <p>Darüber hinaus können Sie Cookies in Ihrem Browser jederzeit löschen oder blockieren.
+       Bitte beachten Sie, dass dies die Funktionalität der Website einschränken kann.</p>
+    <p>Weitere Informationen zur Datenverarbeitung finden Sie in unserer
+       <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+  </div>
+
+  <div class="card">
+    <h2>Verantwortlicher</h2>
+    <p><strong>William Basilien Kom Fotso · WK Solutions</strong><br>
+       Am Alten Gericht 5, 52477 Alsdorf<br>
+       <a href="mailto:info@wk-solutions.de">info@wk-solutions.de</a></p>
+  </div>
+
+  <!--<div class="notice">
+    ⚠️ Platzhalter-Daten – bitte vor Veröffentlichung durch Ihre echten Angaben ersetzen.
+  </div>-->
+</main>
+
+<footer>
+  <p>© 2025 WK Solutions · Einzelunternehmen</p>
+  <div>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
+  </div>
+</footer>
+
+<script>
+function toggleCat(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+</script>
+</body>
+</html>
