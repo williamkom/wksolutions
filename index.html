@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#F7F6F2">
-<meta name="description" content="WK Solutions – SaaS-Unternehmen aus Deutschland. Immo Analyzer: Immobilien-Investments in Minuten bewerten. SolarDim Pro: Solaranlagen professionell auslegen.">
+<meta name="description" content="WK Solutions – Software aus Deutschland: Immo Analyzer für Immobilien, SolarDim Pro für Solaranlagen und School Management System für Schulverwaltung.">
 <meta property="og:title" content="WK Solutions – Software. Smarter.">
-<meta property="og:description" content="Mit Immo Analyzer bewerten Sie Immobilien in Minuten, mit SolarDim Pro planen Sie Solaranlagen professionell. SaaS-Entwicklung und IT-Dienstleistungen aus Deutschland.">
+<meta property="og:description" content="Entdecken Sie Immo Analyzer, SolarDim Pro und unser neues School Management System. SaaS-Entwicklung und IT-Dienstleistungen aus Deutschland.">
 <meta property="og:type" content="website">
 <title>WK Solutions – Software. Smarter.</title>
 
@@ -283,6 +283,16 @@
     box-shadow: 0 8px 24px rgba(233,167,15,0.3);
   }
   .prod[data-accent="solar"] .btn-primary:hover { background: var(--solar-2); }
+  .prod[data-accent="school"] .prod-title em { font-style: normal; color: #3158A5; }
+  .prod[data-accent="school"] .prod-badge b { color: #3158A5; }
+  .prod[data-accent="school"] .feature-list li::before { color: #3158A5; }
+  .school-intro {
+    padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--border);
+    border-radius: 18px; background: #EDF2FC;
+  }
+  .school-intro-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .school-intro h3 { font-family: var(--font-d); font-size: 1.5rem; line-height: 1.3; margin-bottom: 0.8rem; }
+  .school-intro p { color: var(--muted); }
   .prod[data-accent="immo"] .prod-visual { position: relative; }
   .prod[data-accent="immo"] .prod-visual::before {
     content: ''; position: absolute; inset: -8% -6%;
@@ -647,11 +657,11 @@
 <section id="produkte" aria-label="Unsere Produkte">
   <div class="reveal">
     <div class="section-tag">Produkte</div>
-    <h2>Zwei Produkte,<br>die Arbeit leichter machen</h2>
+    <h2>Unsere Software,<br>die Arbeit leichter macht</h2>
     <p class="section-intro">
-      Beide Produkte sind live, werden von uns aktiv weiterentwickelt und folgen
-      demselben Anspruch: komplexe Berechnungen verständlich aufbereiten, damit
-      Sie in Minuten zu einer fundierten Entscheidung kommen.
+      Entdecken Sie unsere Software für Immobilien, Solarplanung und Schulverwaltung.
+      Mit unserem neuen School Management System erweitern wir unser Angebot
+      um Software für Schulen.
     </p>
   </div>
 
@@ -776,6 +786,43 @@
       </div>
     </div>
   </div>
+<!-- SCHOOL MANAGEMENT SYSTEM -->
+  <article class="prod" id="school-management" data-accent="school" aria-labelledby="school-title">
+    <div class="prod-copy reveal">
+      <div class="prod-badge">Produkt <b>03</b> · Neu im Portfolio</div>
+      <h2 class="prod-title" id="school-title">School <em>Management System</em></h2>
+      <div class="prod-tag">Den Schulalltag einfacher organisieren – von der Anmeldung bis zum Zahlungsbeleg.</div>
+      <p>
+        Das <strong>School Management System</strong> vereinfacht die tägliche
+        Verwaltung Ihrer Schule. Es passt sich den konfigurierten Schulstufen
+        und Benutzerrollen an und bietet eine Oberfläche auf Französisch und Englisch.
+      </p>
+      <ul class="feature-list">
+        <li><strong>Schüleranmeldungen</strong> und Klassen verwalten</li>
+        <li><strong>Lehrkräfte und Unterrichtsfächer</strong> organisieren</li>
+        <li><strong>Noten und Zeugnisse</strong> verwalten</li>
+        <li><strong>Zahlungen mit Zahlungsbelegen</strong> erfassen</li>
+        <li>An konfigurierbare <strong>Schulstufen und Benutzerrollen</strong> anpassbar</li>
+      </ul>
+      <div class="prod-meta">
+        <span>Lokaler Server</span>
+        <span>Keine dauerhafte Internetverbindung nötig</span>
+        <span>Französisch · Englisch</span>
+      </div>
+      <div class="btn-group">
+        <a href="#kontakt" class="btn-primary" data-contact-subject="School Management System">Informationen anfragen →</a>
+      </div>
+    </div>
+    <div class="prod-visual reveal">
+      <div class="school-intro">
+        <div class="school-intro-icon" aria-hidden="true">🎓</div>
+        <h3>Schulverwaltung auf Ihrem lokalen Server</h3>
+        <p>Die Anwendung läuft auf einem lokalen Server und benötigt keine
+           dauerhafte Internetverbindung. So unterstützt sie die tägliche
+           Arbeit Ihrer Schule auch ohne permanente Internetanbindung.</p>
+      </div>
+    </div>
+  </article>
 </section>
 
 <!-- LEISTUNGEN -->
@@ -945,6 +992,7 @@
             <option value="IT-Dienstleistung">IT-Dienstleistung</option>
             <option value="Immo Analyzer Feedback">Immo Analyzer – Feedback</option>
             <option value="SolarDim Pro Feedback">SolarDim Pro – Feedback</option>
+            <option value="School Management System">School Management System – Informationen</option>
             <option value="Kooperation">Kooperationsanfrage</option>
             <option value="Sonstiges">Sonstiges</option>
           </select>
@@ -1142,6 +1190,11 @@
   /* ── Kontaktformular: Validierung + Versand mit Fallback ── */
   var form = document.getElementById('contactForm');
   if (!form) return;
+  document.querySelectorAll('[data-contact-subject]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      form.elements.subject.value = link.getAttribute('data-contact-subject');
+    });
+  });
   var successBox = document.getElementById('formSuccess');
   var submitBtn = document.getElementById('submitBtn');
 
