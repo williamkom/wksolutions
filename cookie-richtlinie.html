@@ -1,107 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cookie-Richtlinie – WK Solutions</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #F7F6F2; --bg2: #FFFFFF; --bg3: #F0EEE8;
-    --accent: #E8722A; --accent2: #C25E1C;
-    --text: #181B22; --muted: #5D6272; --border: rgba(24,27,34,0.10);
-  }
-  body { background: var(--bg); color: var(--text); font-family: 'Manrope', sans-serif; font-size: 16px; line-height: 1.7; }
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 5vw;
-    background: rgba(247,246,242,0.9); backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border);
-  }
-  .logo { font-family: 'Syne', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--text); text-decoration: none; }
-  .logo span { color: var(--accent); }
-  .back-link { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
-  .back-link:hover { color: var(--text); }
-  main { max-width: 760px; margin: 0 auto; padding: 8rem 5vw 6rem; }
-  .page-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
-  .page-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
-  h1 { font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
-  .last-updated { font-size: 0.82rem; color: var(--muted); margin-bottom: 3.5rem; }
-  .card { background: rgba(24,27,34,0.03); border: 1px solid var(--border); border-radius: 16px; padding: 2rem 2.5rem; margin-bottom: 1.5rem; }
-  h2 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.2rem; color: var(--accent2); letter-spacing: -0.01em; }
-  p { color: var(--muted); font-size: 0.95rem; line-height: 1.85; margin-bottom: 0.8rem; }
-  p:last-child { margin-bottom: 0; }
-  strong { color: var(--text); font-weight: 600; }
-  a { color: var(--accent2); text-decoration: none; }
-  a:hover { text-decoration: underline; }
 
-  /* Cookie category cards */
-  .cookie-category {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-  }
-  .cookie-cat-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.1rem 1.5rem;
-    background: rgba(24,27,34,0.03);
-    cursor: pointer;
-    user-select: none;
-    transition: background 0.2s;
-  }
-  .cookie-cat-header:hover { background: rgba(24,27,34,0.04); }
-  .cookie-cat-left { display: flex; align-items: center; gap: 0.9rem; }
-  .cookie-cat-icon { font-size: 1.1rem; }
-  .cookie-cat-title { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--text); }
-  .cookie-cat-badge {
-    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
-    text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 999px;
-  }
-  .badge-required { background: rgba(94,229,138,0.12); color: #5EE58A; border: 1px solid rgba(94,229,138,0.25); }
-  .badge-optional { background: rgba(232,114,42,0.1); color: var(--accent2); border: 1px solid rgba(232,114,42,0.2); }
-  .cookie-cat-chevron { color: var(--muted); font-size: 0.8rem; transition: transform 0.2s; }
-  .cookie-cat-header.open .cookie-cat-chevron { transform: rotate(180deg); }
-  .cookie-cat-body {
-    display: none;
-    padding: 1.2rem 1.5rem;
-    border-top: 1px solid var(--border);
-  }
-  .cookie-cat-body.open { display: block; }
-  .cookie-cat-body p { margin-bottom: 1rem; }
-  .cookie-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
-  .cookie-table th { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; padding: 0.5rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); }
-  .cookie-table td { font-size: 0.82rem; color: var(--muted); padding: 0.6rem 0.8rem; border-bottom: 1px solid rgba(24,27,34,0.03); vertical-align: top; }
-  .cookie-table td strong { color: var(--text); }
-  .cookie-table tr:last-child td { border-bottom: none; }
 
-  .manage-btn {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--accent); color: #fff;
-    padding: 0.8rem 1.6rem; border-radius: 8px;
-    text-decoration: none; font-weight: 600; font-size: 0.9rem;
-    border: none; cursor: pointer; transition: background 0.2s;
-    margin-top: 1.5rem;
-  }
-  .manage-btn:hover { background: var(--accent2); text-decoration: none; }
-
-  .notice { background: rgba(232,114,42,0.06); border: 1px solid rgba(232,114,42,0.2); border-radius: 10px; padding: 1rem 1.5rem; margin-top: 2rem; font-size: 0.85rem; color: var(--muted); }
-  footer { padding: 2.5rem 5vw; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-  footer p { font-size: 0.82rem; color: var(--muted); }
-  footer a { color: var(--muted); text-decoration: none; margin-left: 2rem; }
-  footer a:hover { color: var(--text); }
-</style>
+<meta name="theme-color" content="#070b16"><link rel="stylesheet" href="/legal.css">
 </head>
 <body>
-<nav>
-  <a href="index.html" class="logo">WK<span>.</span>Solutions</a>
-  <a href="index.html" class="back-link">← Zurück zur Startseite</a>
-</nav>
+<nav aria-label="Hauptnavigation" class="topnav"><div class="shell navinner"><a class="logo" href="/index.html">WK<span>·</span>Solutions</a><div class="nav-links"><a href="/index.html#produkte">Produkte</a><a href="/index.html#leistungen">Leistungen</a><a href="/index.html#ueber-uns">Über uns</a><a class="nav-cta" href="/index.html#kontakt">Kontakt ↗</a></div><button aria-controls="mobileMenu" aria-expanded="false" aria-label="Menü öffnen" class="nav-burger" id="navBurger" type="button">☰</button></div></nav><div aria-label="Mobile Navigation" class="mobile-menu" id="mobileMenu"><a href="/index.html">Startseite</a><a href="/index.html#produkte">Produkte</a><a href="/index.html#leistungen">Leistungen</a><a href="/index.html#ueber-uns">Über uns</a><a href="/index.html#kontakt">Kontakt</a></div>
 
-<main>
+<main class="legal-wrap">
   <div class="page-tag">Rechtliches</div>
   <h1>Cookie-Richtlinie</h1>
   <p class="last-updated">Stand: Januar 2025 · Gemäß DSGVO (EU) 2016/679 und ePrivacy-Richtlinie 2002/58/EG</p>
@@ -230,22 +140,13 @@
     <h2>Verantwortlicher</h2>
     <p><strong>William Basilien Kom Fotso · WK Solutions</strong><br>
        Am Alten Gericht 5, 52477 Alsdorf<br>
-       <a href="mailto:info@wk-solutions.de">info@wk-solutions.de</a></p>
+       <a href="mailto:contact@wksolutions.app">contact@wksolutions.app</a></p>
   </div>
 
-  <!--<div class="notice">
-    ⚠️ Platzhalter-Daten – bitte vor Veröffentlichung durch Ihre echten Angaben ersetzen.
-  </div>-->
+  <!---->
 </main>
 
-<footer>
-  <p>© 2025 WK Solutions · Einzelunternehmen</p>
-  <div>
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
-    <a href="agb.html">AGB</a>
-  </div>
-</footer>
+<footer><p>© <span id="year">2026</span> WK Solutions. Alle Rechte vorbehalten.</p><div class="footer-links"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a><a href="/terms">Nutzungsbedingungen</a><a href="/cookie-richtlinie">Cookies</a><a href="/data-deletion">Datenlöschung</a></div></footer>
 
 <script>
 function toggleCat(header) {
@@ -254,5 +155,5 @@ function toggleCat(header) {
   body.classList.toggle('open');
 }
 </script>
-</body>
+<script>document.getElementById('year').textContent=new Date().getFullYear();const b=document.getElementById('navBurger'),m=document.getElementById('mobileMenu');if(b&&m){b.addEventListener('click',()=>{let o=m.classList.toggle('open');b.setAttribute('aria-expanded',String(o));});m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');b.setAttribute('aria-expanded','false')}));}</script></body>
 </html>
